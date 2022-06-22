@@ -5,6 +5,7 @@
     "node": true,
     "jest": true
   },
+  "parser": "@babel/eslint-parser",
   "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",

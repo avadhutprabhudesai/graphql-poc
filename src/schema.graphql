@@ -1,0 +1,22 @@
+type Currency {
+  code: String
+  name: String
+  symbol: String
+}
+
+type Country {
+  name: String
+  capital: String
+  region: String
+  subregion: String
+  borders: [String]
+  flag: String
+  latlng: [Float]
+  population: Int
+  currencies: [Currency]
+  demonym: String
+}
+
+type Query {
+  countries(name: String): [Country]
+}
