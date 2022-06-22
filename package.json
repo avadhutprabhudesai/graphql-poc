@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.9",
+    "apollo-datasource-mongodb": "^0.5.4",
     "apollo-server": "^3.8.2",
     "apollo-server-core": "^3.8.2",
     "apollo-server-express": "^3.8.2",

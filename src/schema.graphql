@@ -15,8 +15,76 @@ type Country {
   population: Int
   currencies: [Currency]
   demonym: String
+  code(type: alphaCode = two): String
 }
+interface Searchable {
+  id: Int
+}
+
+type Author implements Searchable {
+  id: Int
+  name: String
+}
+
+type Book implements Searchable {
+  id: Int
+  title: String
+  authors: [Author]
+  libraryBranch: String
+}
+
+type Library {
+  id: Int
+  books: [Book!]
+  authors: [Author]
+}
+
+input BookInput {
+  id: Int
+  title: String
+}
+
+type Engineer {
+  id: Int
+  name: String
+  programmingLanguages: [String]
+  department: String
+}
+type Manager {
+  id: Int
+  name: String
+  projects: [String]
+  department: String
+}
+type Accountant {
+  id: Int
+  name: String
+  financialTools: [String]
+  department: String
+}
+
+scalar EmailAddress
+
+type User {
+  id: Int
+  name: String
+  email: EmailAddress
+}
+
+type ShopUser {
+  id: Int
+  username: String
+  email: String
+}
+
+union Employee = Engineer | Manager | Accountant
 
 type Query {
   countries(name: String): [Country]
+  libraries: [Library]
+  books(bookInput: BookInput): [Searchable]!
+  authors: [Searchable]!
+  employee(id: Int): Employee!
+  users: [User]!
+  shopUser: [ShopUser]
 }
